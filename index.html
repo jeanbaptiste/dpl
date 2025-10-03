@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPL - Distributed Presence Lab</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* A little extra CSS for the animated background */
+        @keyframes move-background {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+        .animated-grid {
+            --grid-color: theme('colors.slate.700');
+            background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: move-background 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- Sticky Header with Hamburger Menu -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <nav class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
+            <a href="#" class="text-xl font-bold tracking-tight text-slate-900">
+                Distributed Presence Lab
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                <a href="#focus" class="hover:text-blue-600 transition-colors">Research Focus</a>
+                <a href="#methods" class="hover:text-blue-600 transition-colors">Methods</a>
+                <a href="#leadership" class="hover:text-blue-600 transition-colors">Leadership</a>
+                <a href="#symposium" class="hover:text-blue-600 transition-colors">Events</a>
+                <a href="#support" class="hover:text-blue-600 transition-colors">Support DPL</a>
+            </div>
+            <!-- Hamburger Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" type="button" class="z-40 block text-slate-800 hover:text-blue-600 focus:outline-none">
+                    <svg id="menu-open-icon" class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <svg id="menu-close-icon" class="h-6 w-6 hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <a href="#about" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">About</a>
+            <a href="#focus" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">Research Focus</a>
+            <a href="#methods" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">Methods</a>
+            <a href="#leadership" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">Leadership</a>
+            <a href="#symposium" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">Events</a>
+            <a href="#support" class="block py-3 px-6 text-sm font-semibold text-slate-600 hover:bg-slate-50">Support DPL</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-slate-900 text-white py-24 sm:py-32 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-50 animated-grid"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter">
+                    How can we design technologies for <span class="text-blue-400">profound human connection</span> across distance?
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+                    A joint research program at the <span class="font-semibold">MIT Media Lab</span> and the <span class="font-semibold">Human-IST Institute</span> pioneering technologies to augment intelligence and foster richer human-to-human communication.
+                </p>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Intro Section (About) -->
+            <section id="about" class="py-20 grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-4">
+                    <svg class="w-full h-auto text-slate-300" width="240" height="240" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18H6C4.89543 18 4 17.1046 4 16V8C4 6.89543 4.89543 6 6 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6H18C19.1046 6 20 6.89543 20 8V16C20 17.1046 19.1046 18 18 18H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 3L7 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 19L7 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 19L17 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="md:col-span-8 text-lg text-slate-700 space-y-4">
+                    <p>The <span class="font-bold text-slate-900">Distributed Presence Lab (DPL)</span> is a joint research initiative pioneering technologies—spanning sensors, actuators, and multimodal interfaces—to dissolve the boundaries between our physical and digital worlds.</p>
+                    <p>We see an urgent need to move beyond simple video conferencing and develop technologies that can transmit the full spectrum of human communication. Our goal is to create a future where distance is no longer a barrier to genuine human connection, creativity, and shared endeavors.</p>
+                     <p>Check out DPL on the <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold transition">MIT Media Lab Page</a> and the <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold transition">Human-IST Page</a>.</p>
+                </div>
+            </section>
+
+            <div class="border-b border-slate-200"></div>
+
+            <!-- Research Focus -->
+            <section id="focus" class="py-20 text-center">
+                 <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Research Focus</h2>
+                 <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                    The goals of the DPL program are ambitious and multifaceted. We aim to establish a new research field and community dedicated to the study of distributed presence and the augmentation of human connection by tackling topics such as:
+                </p>
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto"><div class="bg-slate-100 p-4 rounded-lg font-medium">Embodied Communication</div><div class="bg-slate-100 p-4 rounded-lg font-medium">Shared Environments</div><div class="bg-slate-100 p-4 rounded-lg font-medium">Tangible Interaction</div><div class="bg-slate-100 p-4 rounded-lg font-medium">Sensory Augmentation</div><div class="bg-slate-100 p-4 rounded-lg font-medium">Emotional Connection</div><div class="bg-slate-100 p-4 rounded-lg font-medium">Collaborative Creativity</div></div>
+            </section>
+
+            <div class="border-b border-slate-200"></div>
+
+            <!-- Our Methods -->
+            <section id="methods" class="py-20">
+                <div class="max-w-3xl mx-auto text-center"><h2 class="text-3xl font-bold text-slate-900 tracking-tight">Our Methods</h2><p class="mt-4 text-lg text-slate-600">In pursuit of our goals, we promote three core methods of inquiry to drive innovation and understanding.</p></div>
+                <div class="mt-12 grid md:grid-cols-3 gap-8"><div class="bg-slate-50 border border-slate-200 p-8 rounded-xl"><div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div><h3 class="text-xl font-bold mt-6">Imagine</h3><p class="mt-2 text-slate-600">Design and deploy novel experiences that connect people in profound and unexpected ways.</p></div><div class="bg-slate-50 border border-slate-200 p-8 rounded-xl"><div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div><h3 class="text-xl font-bold mt-6">Prototype</h3><p class="mt-2 text-slate-600">Develop novel technologies to capture, transmit, and render the subtleties of human presence.</p></div><div class="bg-slate-50 border border-slate-200 p-8 rounded-xl"><div class="bg-blue-100 text-blue-600 rounded-full h-12 w-12 flex items-center justify-center"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div><h3 class="text-xl font-bold mt-6">Reflect</h3><p class="mt-2 text-slate-600">Manifest how design choices affect people’s behavior, understanding, and sense of connection.</p></div></div>
+            </section>
+
+            <div class="border-b border-slate-200"></div>
+
+            <!-- Leadership Section -->
+            <section id="leadership" class="py-20">
+                <div class="max-w-3xl mx-auto text-center"><h2 class="text-3xl font-bold text-slate-900 tracking-tight">Leadership & Research</h2><p class="mt-4 text-lg text-slate-600">DPL is guided by a diverse team of researchers and faculty from the MIT Media Lab and the Human-IST Institute.</p></div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"><div class="bg-white p-6 rounded-lg border border-slate-200"><h3 class="font-bold text-blue-700">Founding Co-Directors</h3><div class="mt-4 text-slate-600 space-y-4"><p><strong class="text-slate-900">Prof. Joe Paradiso</strong> (MIT Media Lab)</p><p><strong class="text-slate-900">Prof. Denis Lalanne</strong> (Human-IST, University of Fribourg)</p></div></div><div class="bg-white p-6 rounded-lg border border-slate-200"><h3 class="font-bold text-blue-700">Co-PI</h3><div class="mt-4 text-slate-600"><p><strong class="text-slate-900">Prof. Hiroshi Ishii</strong> (MIT Media Lab)</p><p><strong class="text-slate-900">Dr. JB Labrune</strong> (MIT Media Lab)</p></div></div><div class="bg-white p-6 rounded-lg border border-slate-200"><h3 class="font-bold text-blue-700">Advisors</h3><div class="mt-4 text-slate-600"><p><strong class="text-slate-900">Pat Pataranutaporn</strong> (MIT Media Lab)</p></div></div><div class="bg-white p-6 rounded-lg border border-slate-200"><h3 class="font-bold text-blue-700">Research Group</h3><div class="mt-4 text-slate-600"><p><strong class="text-slate-900">Nomadic Media Group,</strong> led by Dr. JB Labrune (Director of NMG)</p></div></div></div>
+            </section>
+
+            <!-- Symposium Section -->
+            <section id="symposium" class="py-20">
+                <div class="text-center max-w-3xl mx-auto"><div class="bg-blue-100 text-blue-600 rounded-full h-16 w-16 mx-auto flex items-center justify-center"><svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18M-4.5 12h22.5" /></svg></div><h2 class="text-3xl font-bold text-slate-900 tracking-tight mt-6">Symposium & Events</h2><p class="mt-4 text-lg text-slate-600">Details about our inaugural DPL symposium, focused workshops, and our speaker series will be announced soon. Stay tuned for opportunities to engage with leading experts on the future of human connection.</p></div>
+            </section>
+        </div>
+
+        <!-- Support DPL Section -->
+        <section id="support" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center"><h2 class="text-3xl font-bold text-slate-900 tracking-tight">Support the Future of Connection</h2><p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Your support enables groundbreaking research and helps us build a more connected world. Join DPL and become part of a community advancing human connection with technology.</p></div>
+                <div class="mt-12 grid md:grid-cols-2 gap-8"><div class="border border-slate-200 bg-white p-8 rounded-xl"><h3 class="text-2xl font-bold text-slate-900">DPL Council</h3><p class="font-semibold text-blue-600 mt-1">Donations of $250K+</p><p class="mt-4 text-slate-600">Council members play a pivotal role in the DPL mission, enjoying exclusive opportunities to engage deeply with our innovative work.</p><ul class="mt-6 space-y-3 text-slate-700 list-disc list-inside"><li>Exclusive invitations to bi-annual member events</li><li>Input on the DPL research agenda</li><li>Collaboration on Focused Research Projects</li></ul></div><div class="border border-slate-200 bg-white p-8 rounded-xl"><h3 class="text-2xl font-bold text-slate-900">DPL Catalysts</h3><p class="font-semibold text-blue-600 mt-1">Donations of $50K - $250K</p><p class="mt-4 text-slate-600">Catalysts are essential supporters whose contributions sustain DPL and provide meaningful connections to its work.</p><ul class="mt-6 space-y-3 text-slate-700 list-disc list-inside"><li>Attend the annual DPL symposium</li><li>Participate in our invited speaker series</li><li>Access to the vibrant MIT Media Lab and Human-IST ecosystem</li></ul></div></div>
+                <div class="mt-12 bg-white border border-slate-200 rounded-xl p-8"><h3 class="text-2xl font-bold text-slate-900 text-center">Ways to Get Involved</h3><div class="mt-6 grid sm:grid-cols-3 gap-8 text-center"><div><h4 class="font-bold text-slate-800">Unrestricted Gifts</h4><p class="text-sm text-slate-600 mt-1">Ensure the DPL program can thrive and share findings with the widest audience possible.</p></div><div><h4 class="font-bold text-slate-800">Student Fellowships</h4><p class="text-sm text-slate-600 mt-1">Grow our research community and tackle more of the important questions and problems.</p></div><div><h4 class="font-bold text-slate-800">Focused Research</h4><p class="text-sm text-slate-600 mt-1">Collaborate with our researchers on a specific study based on shared interests.</p></div></div></div>
+                <div class="mt-12 text-center"><p class="text-lg text-slate-700">Gifts of all sizes are accepted and valued greatly.</p><a href="mailto:dpl-info@media.mit.edu" class="mt-6 inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors">Contact Us to Get Involved</a></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400">
+        <div class="max-w-6xl mx-auto px-6 py-12 text-center"><p>&copy; 2025 Distributed Presence Lab</p><p class="text-sm mt-2">MIT Media Lab & Human-IST Institute</p></div>
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-open-icon');
+        const closeIcon = document.getElementById('menu-close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (const link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
